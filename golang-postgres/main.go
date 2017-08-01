@@ -34,6 +34,18 @@ func main() {
 	checkErr(err)
 	log.WithFields(log.Fields{"lastInsertID": lastInsertID}).Info("Last insert id")
 
+	log.WithFields(log.Fields{"action": "update"}).Info("Updating userinfo where uid=lastInserID")
+	stmt, err := db.Prepare("update userinfo set username=$1 where uid=$2")
+	checkErr(err)
+
+	res, err := stmt.Exec("musale", lastInsertID)
+	checkErr(err)
+
+	affect, err := res.RowsAffected()
+	checkErr(err)
+
+	log.WithFields(log.Fields{"action": "change", "affect": affect}).Info("Rows changed")
+
 	http.HandleFunc("/", lib.MessagesPage)
 	http.ListenAndServe(":5505", nil)
 }
