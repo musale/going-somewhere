@@ -1,0 +1,20 @@
+sudo -u postgres psql
+
+CREATE DATABASE test_go;
+CREATE USER test_go_user WITH PASSWORD 'test_go_pa$$';
+ALTER ROLE test_go_user SET client_encoding TO 'utf8';
+ALTER ROLE test_go_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE test_go_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE test_go TO test_go_user;
+
+psql -h localhost -p 5432 -U test_go_user test_go
+
+CREATE TABLE userinfo
+    (
+        uid serial NOT NULL,
+        username character varying(100) NOT NULL,
+        departname character varying(500) NOT NULL,
+        Created date,
+        CONSTRAINT userinfo_pkey PRIMARY KEY (uid)
+    )
+    WITH (OIDS=FALSE);
