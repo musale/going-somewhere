@@ -9,16 +9,28 @@ func TestHello(t *testing.T) {
 		}
 	}
 	t.Run("print name passed in args", func(t *testing.T) {
-		got := Hello("Thiel")
+		got := Hello("Thiel", "English")
 		want := "Hello, Thiel"
 		assertCorrect(t, got, want)
 	})
 
 	t.Run("print default when args is empty string", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "English")
 		want := "Hello, World"
 		assertCorrect(t, got, want)
 
+	})
+
+	t.Run("greet in spanish", func(t *testing.T) {
+		got := Hello("Miley", "Spanish")
+		want := "Hola, Miley"
+		assertCorrect(t, got, want)
+	})
+
+	t.Run("greet in french", func(t *testing.T) {
+		got := Hello("Miley", "French")
+		want := "Bonjour, Miley"
+		assertCorrect(t, got, want)
 	})
 
 }
