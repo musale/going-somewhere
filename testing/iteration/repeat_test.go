@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestRepeat(t *testing.T) {
 	t.Run("repeat text 5 times", func(t *testing.T) {
@@ -24,4 +27,10 @@ func BenchmarkRepeat(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Repeat("b", 5)
 	}
+}
+
+func ExampleRepeat() {
+	rpt := Repeat("a", 5)
+	fmt.Println(rpt)
+	// Output: aaaaa
 }
