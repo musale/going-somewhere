@@ -11,7 +11,7 @@ func main() {
 func Repeat(word string) string {
 	var rpt string
 	for i := 0; i < 5; i++ {
-		rpt = rpt + word
+		rpt += word
 	}
 	return rpt
 }
