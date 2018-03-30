@@ -21,3 +21,13 @@ func SumAll(numbers ...[]int) []int {
 	}
 	return sums
 }
+
+// SumAllTails returns sums of the last slice values except the first
+func SumAllTails(numbersSlice ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersSlice {
+		tail := numbers[1:]
+		sums = append(sums, Sum(tail))
+	}
+	return sums
+}
