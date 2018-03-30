@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -16,12 +17,25 @@ func TestSum(t *testing.T) {
 	})
 }
 
+func ExampleSum() {
+	numbers := []int{1, 2, 3}
+	sum := Sum(numbers)
+	fmt.Println(sum)
+	// Output: 6
+}
+
 func TestSumAll(t *testing.T) {
 	sum := SumAll([]int{1, 2, 3}, []int{4, 5})
 	expected := []int{6, 9}
 	if !reflect.DeepEqual(sum, expected) {
 		t.Errorf("expected %v but got %v", expected, sum)
 	}
+}
+
+func ExampleSumAll() {
+	sum := SumAll([]int{1, 2, 3}, []int{4, 5})
+	fmt.Println(sum)
+	// Output: [6 9]
 }
 
 func TestSumAllTails(t *testing.T) {
@@ -41,4 +55,10 @@ func TestSumAllTails(t *testing.T) {
 		expected := []int{0, 5}
 		checkSums(t, expected, sum)
 	})
+}
+
+func ExampleSumAllTails() {
+	sum := SumAllTails([]int{1, 2, 3}, []int{4, 5})
+	fmt.Println(sum)
+	// Output: [5 5]
 }
