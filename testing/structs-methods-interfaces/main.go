@@ -6,5 +6,5 @@ func main() {
 
 // Perimeter gives the perimeter of a 4 sided
 func Perimeter(width, height float64) float64 {
-	return width + height
+	return 2 * (width + height)
 }
