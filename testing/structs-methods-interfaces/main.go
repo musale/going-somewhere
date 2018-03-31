@@ -8,3 +8,8 @@ func main() {
 func Perimeter(width, height float64) float64 {
 	return 2 * (width + height)
 }
+
+// Area gives the area of a 4 sided figure
+func Area(width, height float64) float64 {
+	return width * height
+}
