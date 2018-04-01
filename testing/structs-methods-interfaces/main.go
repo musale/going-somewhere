@@ -11,6 +11,11 @@ type Rectangle struct {
 	Height float64
 }
 
+// Circle describes a round figure
+type Circle struct {
+	Radius float64
+}
+
 // Perimeter gives the perimeter of a 4 sided
 func Perimeter(rec Rectangle) float64 {
 	return 2 * (rec.Width + rec.Height)
