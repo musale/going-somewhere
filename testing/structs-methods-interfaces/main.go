@@ -1,15 +1,22 @@
 package main
 
 func main() {
-	Perimeter(30.4, 20.1)
+	rectangle := Rectangle{30.4, 20.1}
+	Perimeter(rectangle)
+}
+
+// Rectangle describes a 4 sided figure with 2 opp sides equal
+type Rectangle struct {
+	Width  float64
+	Height float64
 }
 
 // Perimeter gives the perimeter of a 4 sided
-func Perimeter(width, height float64) float64 {
-	return 2 * (width + height)
+func Perimeter(rec Rectangle) float64 {
+	return 2 * (rec.Width + rec.Height)
 }
 
 // Area gives the area of a 4 sided figure
-func Area(width, height float64) float64 {
-	return width * height
+func Area(rec Rectangle) float64 {
+	return rec.Width * rec.Height
 }
