@@ -7,6 +7,11 @@ func main() {
 	Perimeter(rectangle)
 }
 
+// Shape describes methods for shapes
+type Shape interface {
+	Area() float64
+}
+
 // Rectangle describes a 4 sided figure with 2 opp sides equal
 type Rectangle struct {
 	Width  float64
@@ -15,7 +20,7 @@ type Rectangle struct {
 
 // Area returns area of a rectangle
 func (rec Rectangle) Area() float64 {
-	return 2 * rec.Width * rec.Height
+	return rec.Width * rec.Height
 }
 
 // Circle describes a round figure
