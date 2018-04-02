@@ -3,6 +3,7 @@ language: go
 go:
   - "1.10.x"
 
-install: true
+install:
+  - go install ./...
 
 script: go test ./...
