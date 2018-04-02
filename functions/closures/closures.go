@@ -1,4 +1,4 @@
-package main
+package closures
 
 import (
 	"fmt"
@@ -10,8 +10,8 @@ import (
 
 // User represents a gold user
 type User struct {
-	names  string
-	points string
+	Names  string
+	Points string
 }
 
 // Printer is a function that can be passed through other funcs
@@ -19,7 +19,7 @@ type Printer func(string)
 
 // PrintDetails prints the name and points
 func PrintDetails(u User, do Printer) {
-	d := CreateDetails(u.names, u.points)
+	d := CreateDetails(u.Names, u.Points)
 	do(d)
 }
 
@@ -43,9 +43,4 @@ func CreatePrinterFunc(s string) Printer {
 	return func(str string) {
 		fmt.Println(str + " " + s)
 	}
-}
-
-func main() {
-	user := User{"King Kunta", "901823"}
-	PrintDetails(user, CreatePrinterFunc("GLD"))
 }

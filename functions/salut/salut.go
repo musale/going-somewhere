@@ -1,4 +1,4 @@
-package main
+package salut
 
 import (
 	"fmt"
@@ -6,13 +6,13 @@ import (
 
 // Salute structure
 type Salute struct {
-	name     string
-	greeting string
+	Name     string
+	Greeting string
 }
 
 // Greet functionality
 func Greet(s Salute) {
-	message, alternate := CreateMessages(s.greeting, s.name)
+	message, alternate := CreateMessages(s.Greeting, s.Name)
 	fmt.Println(message)
 	fmt.Printf(alternate)
 }
@@ -22,9 +22,4 @@ func CreateMessages(greeting, name string) (message, alternate string) {
 	message = greeting + " " + name
 	alternate = "How are you " + name
 	return
-}
-
-func main() {
-	s := Salute{name: "Mr King", greeting: "Ni hao"}
-	Greet(s)
 }
