@@ -33,12 +33,18 @@ func (circle Circle) Area() float64 {
 	return math.Pi * circle.Radius * circle.Radius
 }
 
+// Triangle describes 3 sided figure
+type Triangle struct {
+	Base   float64
+	Height float64
+}
+
+// Area returns area of a triangle
+func (tri Triangle) Area() float64 {
+	return 0.5 * tri.Base * tri.Height
+}
+
 // Perimeter gives the perimeter of a 4 sided
 func Perimeter(rec Rectangle) float64 {
 	return 2 * (rec.Width + rec.Height)
-}
-
-// Area gives the area of a 4 sided figure
-func Area(rec Rectangle) float64 {
-	return rec.Width * rec.Height
 }
