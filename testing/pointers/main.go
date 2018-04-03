@@ -2,18 +2,21 @@ package main
 
 func main() {}
 
+// Bitcoin is our currency
+type Bitcoin float64
+
 // Wallet stores our cash
 type Wallet struct {
-	balance float64
+	balance Bitcoin
 }
 
 // Deposit amount into wallet
-func (w *Wallet) Deposit(amt float64) {
+func (w *Wallet) Deposit(amt Bitcoin) {
 	w.balance += amt
 	return
 }
 
 // Balance in the wallet
-func (w *Wallet) Balance() float64 {
+func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
