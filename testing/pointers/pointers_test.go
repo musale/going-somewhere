@@ -24,4 +24,14 @@ func TestWallet(t *testing.T) {
 		want := Bitcoin(20.0)
 		assertBalance(t, wallet, want)
 	})
+
+	t.Run("withdraw more than deposit", func(t *testing.T) {
+		startingBalance := Bitcoin(20)
+		wallet := Wallet{balance: startingBalance}
+		err := wallet.Withdraw(Bitcoin(50))
+		assertBalance(t, wallet, startingBalance)
+		if err == nil {
+			t.Errorf("expected to fail but did not")
+		}
+	})
 }
