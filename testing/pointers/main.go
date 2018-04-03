@@ -1,6 +1,17 @@
 package main
 
+import "fmt"
+
 func main() {}
+
+// Stringer is a custom print formatter for our BTC
+type Stringer struct {
+	String string
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%.2f BTC", b)
+}
 
 // Bitcoin is our currency
 type Bitcoin float64
