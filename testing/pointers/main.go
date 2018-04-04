@@ -5,6 +5,9 @@ import (
 	"fmt"
 )
 
+// ErrInsufficientFunds is error thrown when you withdraw more than balance
+var ErrInsufficientFunds = errors.New("cannot withdraw; balance is less than withdrawal amount")
+
 func main() {}
 
 // Stringer is a custom print formatter for our BTC
@@ -38,7 +41,7 @@ func (w *Wallet) Balance() Bitcoin {
 // Withdraw from the wallet
 func (w *Wallet) Withdraw(amt Bitcoin) error {
 	if amt > w.balance {
-		return errors.New("cannot withdraw; balance is less than withdrawal amount")
+		return ErrInsufficientFunds
 	}
 	w.balance -= amt
 	return nil
