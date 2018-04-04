@@ -12,7 +12,7 @@ func TestWallet(t *testing.T) {
 	}
 	assertError := func(t *testing.T, err error, want string) {
 		if err == nil {
-			t.Error("wanted an error but didnt get one")
+			t.Fatal("wanted an error but didnt get one")
 		}
 
 		if err.Error() != want {
